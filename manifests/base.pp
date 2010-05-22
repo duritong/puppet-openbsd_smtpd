@@ -16,8 +16,7 @@ class openbsd-smtpd::base {
   }
 
   service{'smtpd':
-    start => '/usr/sbin/smtpd',
-    hasstatus => false,
-    hasrestart => false,
+    provider => 'base',
+    binary => '/usr/sbin/smtpd',
   }
 }
