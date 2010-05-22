@@ -7,6 +7,7 @@ class openbsd-smtpd::base {
                 "puppet://$server/modules/site-openbsd-smtpd/config/smtpd.conf",
                 "puppet://$server/modules/openbsd-smtpd/config/smtpd.conf" ],
     notify => Exec['check_smtpd_config'],
+    owner => root, group => 0, mode => 0644;
   }
 
   exec{'check_smtpd_config':
@@ -16,6 +17,7 @@ class openbsd-smtpd::base {
   }
 
   service{'smtpd':
+    ensure => running,
     provider => 'base',
     binary => '/usr/sbin/smtpd',
   }
