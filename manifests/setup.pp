@@ -13,7 +13,8 @@ class openbsd-smtpd::setup {
 
   line{'disable_sendmail':
     file => '/etc/rc.conf.local',
-    line => 'smtpd_flags=',
+    line => 'sendmail_flags=NO',
+    before => Line['enable_smtpd'],
   }
   line{'enable_smtpd':
     file => '/etc/rc.conf.local',
