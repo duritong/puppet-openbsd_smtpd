@@ -19,6 +19,7 @@ class openbsd-smtpd::base {
   service{'smtpd':
     ensure => running,
     provider => 'base',
-    binary => 'smtpd',
+    binary => '/usr/sbin/smtpd',
+    status => 'smtpctl show stats'
   }
 }
