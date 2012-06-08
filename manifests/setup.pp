@@ -1,7 +1,7 @@
-class openbsd-smtpd::setup {
+class openbsd_smtpd::setup {
   include sendmail::newaliases
   file{'/etc/mailer.conf':
-    source => "puppet:///modules/openbsd-smtpd/config/mailer.conf",
+    source => "puppet:///modules/openbsd_smtpd/config/mailer.conf",
     notify => [ Exec['refresh_aliases'], Exec['kill_sendmail'] ],
     owner => root, group => 0, mode => 0644;
   }

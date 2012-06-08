@@ -1,3 +1,5 @@
-class openbsd-smtpd {
-  include openbsd-smtpd::base
+class openbsd_smtpd(
+  $smtpd_type = ''
+) {
+  include openbsd_smtpd::base
 }

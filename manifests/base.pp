@@ -1,11 +1,11 @@
-class openbsd-smtpd::base {
-  include openbsd-smtpd::setup
+class openbsd_smtpd::base {
+  include openbsd_smtpd::setup
 
   file{'/etc/mail/smtpd.conf':
-    source => [ "puppet:///modules/site-openbsd-smtpd/config/${fqdn}/smtpd.conf",
-                "puppet:///modules/site-openbsd-smtpd/config/${smtpd_type}/smtpd.conf",
-                "puppet:///modules/site-openbsd-smtpd/config/smtpd.conf",
-                "puppet:///modules/openbsd-smtpd/config/smtpd.conf" ],
+    source => [ "puppet:///modules/site_openbsd_smtpd/config/${::fqdn}/smtpd.conf",
+                "puppet:///modules/site_openbsd_smtpd/config/${openbsd_smtpd::smtpd_type}/smtpd.conf",
+                "puppet:///modules/site_openbsd_smtpd/config/smtpd.conf",
+                "puppet:///modules/openbsd_smtpd/config/smtpd.conf" ],
     notify => Exec['check_smtpd_config'],
     owner => root, group => 0, mode => 0644;
   }
