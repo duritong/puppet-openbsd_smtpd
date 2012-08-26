@@ -14,7 +14,7 @@ class openbsd_smtpd::setup {
   file_line{'disable_sendmail':
     path => '/etc/rc.conf.local',
     line => 'sendmail_flags=NO',
-    before => Line['enable_smtpd'],
+    before => File_line['enable_smtpd'],
   }
   file_line{'enable_smtpd':
     path => '/etc/rc.conf.local',
